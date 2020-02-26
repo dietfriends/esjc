@@ -31,6 +31,7 @@ jobs:
             -e EVENTSTORE_EXT_TCP_PORT=7773 \
             -e EVENTSTORE_EXT_SECURE_TCP_PORT=7779 \
             -e EVENTSTORE_CERTIFICATE_FILE=/ssl/domain.p12 \
-            -v ${GITHUB_WORKSPACE}/ssl:/ssl eventstore/eventstore:release-${{ matrix.eventstore }}
+            -v ${PWD}/ssl:/ssl eventstore/eventstore:release-${{ matrix.eventstore }}
       - name: Build with Maven
         run: mvn clean verify
+
